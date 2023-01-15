@@ -9,7 +9,7 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // Update if you fork this repo
-DEVELOPMENT_TEAM = ZWDJQ796RU
+DEVELOPMENT_TEAM = 
 
 // Disable code-signing for macOS
 CODE_SIGN_IDENTITY[sdk=macos*] =
