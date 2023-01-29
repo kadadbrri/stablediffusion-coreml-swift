@@ -38,6 +38,7 @@ extension ModelInfo {
     /// Currently using `split_einsum` for iOS and `original` for macOS, but could vary depending on model.
     var bestURL: URL {
         // Pattern: https://huggingface.co/pcuenq/coreml-stable-diffusion/resolve/main/coreml-stable-diffusion-v1-5_original_compiled.zip
+        //Switching to einsum from original. Original is faster.
         let suffix = runningOnMac ? originalAttentionSuffix : splitAttentionName
         let repo = modelId.split(separator: "/").last!
         return URL(string: "https://huggingface.co/\(modelId)/resolve/main/\(repo)_\(suffix).zip")!
@@ -46,6 +47,9 @@ extension ModelInfo {
     /// Best units for current platform.
     /// Currently using `cpuAndNeuralEngine` for iOS and `cpuAndGPU` for macOS, but could vary depending on model.
     /// .all works for v1.4, but not for v1.5.
+    /// expression 1 = .cpuAndGPU
+    /// .all does not work
+    /// cpuAndNeuralEngine doesn't work
     // TODO: measure performance on different devices.
     var bestComputeUnits: MLComputeUnits {
         return runningOnMac ? .cpuAndGPU : .cpuAndNeuralEngine

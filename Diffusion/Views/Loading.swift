@@ -8,7 +8,8 @@
 
 import SwiftUI
 import Combine
-
+///model = ModelInfo.v2Base - Default, changed to ModelInfo.v21base
+///changed to 15vbase
 let model = ModelInfo.v2Base
 
 class DiffusionGlobals: ObservableObject {

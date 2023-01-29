@@ -11,8 +11,9 @@ import Combine
 import StableDiffusion
 
 // TODO: bind to UI controls
+//set steps from 25 to 50
 let scheduler = StableDiffusionScheduler.dpmSolverMultistepScheduler
-let steps = 25
+let steps = 50
 let seed: UInt32? = nil
 
 func generate(pipeline: Pipeline?, prompt: String) async -> (CGImage, TimeInterval)? {

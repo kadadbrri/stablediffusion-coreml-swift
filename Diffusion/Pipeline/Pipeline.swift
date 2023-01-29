@@ -32,7 +32,10 @@ class Pipeline {
     func generate(prompt: String, scheduler: StableDiffusionScheduler, numInferenceSteps stepCount: Int = 50, seed: UInt32? = nil) throws -> (CGImage, TimeInterval) {
         let beginDate = Date()
         print("Generating...")
+        // let theSeed = seed ?? UInt32.random(in: 0..<UInt32.max)
         let theSeed = seed ?? UInt32.random(in: 0..<UInt32.max)
+        //let theSeed = seed ?? 93
+        //image count working at 1, setting to 5
         let images = try pipeline.generateImages(
             prompt: prompt,
             imageCount: 1,
